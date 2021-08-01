@@ -9,9 +9,12 @@ URL = 'https://www.otomoto.pl/osobowe/?search%5Border%5D=created_at%3Adesc&searc
 DB_NAME = 'otomoto_data.db'
 try:
 	MAX_PAGE = int(input("Input max no pages to be processed: "))
+	if MAX_PAGE > 500:
+		MAX_PAGE = 500
+		print("Maximum number of pages is 500. Processing...")
 except:
-	MAX_PAGE = 1000
-	print("Value not an integer - processing max 1000 pages.")
+	MAX_PAGE = 500
+	print("Value not an integer - processing 500 pages.")
 
 
 def add_page_data(pagenum):
